@@ -75,6 +75,6 @@ The model is trained using a RandomForestClassifier to predict disease outbreak 
 
 ### Data Preparation:
 
-Merges datasets containing climate, population, and healthcare data.
+Merges datasets containing climate, population, Disease and healthcare data.
 
 Extracts features like temperature, humidity, rainfall, population density, and healthcare availability.
