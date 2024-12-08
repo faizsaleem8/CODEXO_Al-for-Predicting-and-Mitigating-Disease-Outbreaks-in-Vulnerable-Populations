@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Disease Prevention</title>
+    <link rel="icon" href="static/Codexo.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d6efd; /* Matching theme */
+            padding: 1rem 2rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: white;
+            color: #0d6efd; /* Matching theme */
+        }
+
+        /* Sidebar and Content Layout */
+        .right-sidebar {
+            width: 300px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 1px solid #e0e0e0;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .breaking-news {
+            margin-bottom: 20px;
+        }
+
+        .breaking-news h3 {
+            color: #d9534f;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .news-item {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content-area {
+            margin-top: 70px;
+            margin-right: 300px;
+            width: calc(100% - 300px);
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .heatmap {
+            width: 60%;
+            height: 600px;
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Login Box Styling */
+        .login-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 35%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-box label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .login-box button {
+            padding: 0.8rem;
+            background-color: #0d6efd; /* Matching theme */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #084298; /* Darker blue */
+        }
+
+        .login-box .signup-link {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .login-box .signup-link a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .login-box .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+
+    <!-- Add Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="logo">Disease Prevention</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="docs">Docs</a></li>
+                    <li><a href="contacts">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="right-sidebar">
+            <div class="breaking-news">
+                <h3>Breaking News</h3>
+                <div class="news-item">
+                    <strong>Alert:</strong> New disease outbreak reported in urban areas
+                </div>
+                <div class="news-item">
+                    <strong>Update:</strong> Vaccination drive expanded to rural regions
+                </div>
+                <div class="news-item">
+                    <strong>Information:</strong> Preventive measures for emerging health risks
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="heatmap" id="map"></div>
+            <div class="login-box">
+                <h2>Login</h2>
+                <form action="/login" method="POST">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username">
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    
+                    <button type="submit">Login</button>
+                    <div class="signup-link">
+                        Don't have an account? <a href="signup">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch heatmap data from Flask server
+        fetch('/heatmap_data')
+            .then(response => response.json())
+            .then(data => {
+                const map = L.map('map').setView([20.5937, 78.9629], 5); // Set initial view for India
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                const heatData = data.map(point => [point[0], point[1], point[2]]);
+                
+                L.heatLayer(heatData, {radius: 25}).addTo(map);
+            })
+            .catch(error => console.error('Error fetching heatmap data:', error));
+    </script>
+</body>
+</html>

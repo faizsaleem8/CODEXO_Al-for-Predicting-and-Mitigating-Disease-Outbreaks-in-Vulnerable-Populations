@@ -4,77 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disease Outbreak Predictor</title>
+    <link rel="icon" href="static/Codexo.png" type="image/png">
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Leaflet and Leaflet Heatmap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <!-- Google Fonts for a more modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Custom CSS for added styling -->
+    <!-- Custom CSS -->
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
+            z-index: 30;
+            margin-top: 120px;
         }
-
+        
         .container {
             margin-top: 50px;
             max-width: 900px;
         }
-
+        .logo{
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: 20px;
+        }
         h1 {
             font-size: 2.5rem;
             font-weight: 600;
-            color: #343a40;
+            color: white;
+            margin-left: 90px;
+            
         }
-
-        .form-group label {
-            font-weight: 500;
+        header {
+            display: flex;
+            
+            
+            background-color: #0d6efd; /* Matching theme */
+            padding: 1rem 2rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            
+            left: 0;
+            z-index: 1000;
         }
-
-        .form-control {
-            border-radius: 10px;
-            box-shadow: none;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            font-weight: 500;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-
-        #result {
+        #map {
+            height: 600px;
+            display: none; /* Initially hide the map */
             margin-top: 30px;
-            padding: 20px;
-            background-color: #e9ecef;
-            border-radius: 10px;
         }
 
-        .alert-custom {
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        .alert-success {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .alert-danger {
-            background-color: #dc3545;
-            color: white;
+        .btn-toggle {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <header class="header">
+    <img src="static/Codexo.png" alt="Codexo Logo" class="logo">
     <h1 class="text-center">Disease Outbreak Predictor</h1>
-
+    </header>
     <!-- Form to select State and District -->
     <form id="predictForm" class="mt-5">
         <div class="form-row">
@@ -110,11 +104,19 @@
 
     <!-- Display prediction result -->
     <div id="result" class="mt-4"></div>
+
+    <!-- Toggle buttons for Heatmap -->
+    <button id="heatmapToggle" class="btn btn-secondary btn-block btn-toggle">Toggle Heatmap</button>
+
+    <!-- Heatmap -->
+    <div id="map"></div>
 </div>
 
-<!-- Include jQuery and Bootstrap JS -->
+<!-- Include JS Libraries -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
 <script>
     // Update districts based on selected state
@@ -128,9 +130,7 @@
                 success: function (response) {
                     var districtSelect = $('#district');
                     districtSelect.empty();
-                    districtSelect.append('<option value="">Select District</option>'); // default option
-
-                    // Add each district as an option in the dropdown
+                    districtSelect.append('<option value="">Select District</option>');
                     $.each(response.districts, function (index, district) {
                         districtSelect.append('<option value="' + district + '">' + district + '</option>');
                     });
@@ -184,12 +184,33 @@
                     $('#result').html('<p class="alert alert-danger">' + response.error + '</p>');
                 } else {
                     $('#result').html('<p class="alert alert-success"><strong>Prediction:</strong> ' + response.prediction + '</p>' +
-                        '<p><strong>Confidence:</strong> ' + response.confidence + '</p>');
+                        '<p><strong>AI Confidence:</strong> ' + response.ai_confidence + '</p>');
                 }
             }
         });
     });
-</script>
 
+    // Heatmap functionality
+    $('#heatmapToggle').click(function () {
+        $('#map').toggle(); // Toggle visibility of heatmap
+        if ($('#map').is(':visible')) {
+            $.ajax({
+                url: '/heatmap_data',
+                type: 'GET',
+                success: function (data) {
+                    var map = L.map('map').setView([20.5937, 78.9629], 5); // Center map on India
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    // Add heatmap data
+                    L.heatLayer(data.map(function (point) {
+                        return [point[0], point[1], point[2]]; // latitude, longitude, intensity
+                    }), { radius: 25 }).addTo(map);
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

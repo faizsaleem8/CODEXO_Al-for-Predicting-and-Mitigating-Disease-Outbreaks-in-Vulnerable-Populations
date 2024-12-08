@@ -1,0 +1,141 @@
+State,District,Latitude,Longitude
+Andhra Pradesh,Visakhapatnam,17.6868,83.2185
+Andhra Pradesh,Vijayawada,16.5062,80.6480
+Andhra Pradesh,Guntur,16.3067,80.4365
+Andhra Pradesh,Tirupati,13.6288,79.4192
+Andhra Pradesh,Nellore,14.4426,79.9707
+Arunachal Pradesh,Itanagar,27.0844,93.6053
+Arunachal Pradesh,Tawang,27.5870,91.8531
+Arunachal Pradesh,Pasighat,28.0687,95.3315
+Arunachal Pradesh,Ziro,27.5870,93.8222
+Arunachal Pradesh,Bomdila,27.2663,92.4016
+Assam,Guwahati,26.1433,91.7898
+Assam,Dibrugarh,27.4728,94.9120
+Assam,Silchar,24.8170,92.8139
+Assam,Tezpur,26.6864,92.8143
+Assam,Jorhat,26.7532,94.2030
+Bihar,Patna,25.5941,85.1376
+Bihar,Gaya,24.7955,85.0077
+Bihar,Muzaffarpur,26.1239,85.3910
+Bihar,Bhagalpur,25.2572,86.4816
+Bihar,Darbhanga,26.1667,85.9000
+Chhattisgarh,Raipur,21.2517,81.6296
+Chhattisgarh,Bilaspur,22.0647,82.1556
+Chhattisgarh,Korba,22.3664,82.7026
+Chhattisgarh,Durg,20.8781,81.8704
+Chhattisgarh,Jagdalpur,19.0785,82.0598
+Goa,Panaji,15.4909,73.8278
+Goa,Margao,15.2756,73.9881
+Goa,Vasco da Gama,15.4000,73.8300
+Goa,Mapusa,15.6002,73.8162
+Goa,Ponda,15.4000,73.8300
+Gujarat,Ahmedabad,23.0225,72.5714
+Gujarat,Surat,21.1702,72.8311
+Gujarat,Vadodara,22.3072,73.1812
+Gujarat,Rajkot,22.3039,70.8022
+Gujarat,Bhavnagar,21.7645,72.1519
+Haryana,Gurgaon,28.4595,77.0266
+Haryana,Faridabad,28.4089,77.3178
+Haryana,Panipat,29.3956,76.9674
+Haryana,Ambala,30.3752,76.7821
+Haryana,Karnal,29.6905,76.9904
+Himachal Pradesh,Shimla,31.1048,77.1734
+Himachal Pradesh,Dharamshala,32.2167,76.3236
+Himachal Pradesh,Manali,32.2396,77.1887
+Himachal Pradesh,Kullu,31.9590,77.1090
+Himachal Pradesh,Solan,30.9129,77.0887
+Jharkhand,Ranchi,23.3441,85.3096
+Jharkhand,Jamshedpur,22.8456,86.4281
+Jharkhand,Dhanbad,23.7957,86.4303
+Jharkhand,Bokaro,23.6745,86.1574
+Jharkhand,Deoghar,24.4893,86.7046
+Karnataka,Bengaluru,12.9716,77.5946
+Karnataka,Mysuru,12.2958,76.6394
+Karnataka,Mangaluru,12.9141,74.8560
+Karnataka,Hubli,15.3647,75.1240
+Karnataka,Belagavi,15.8497,74.4978
+Kerala,Thiruvananthapuram,8.5241,76.9366
+Kerala,Kochi,9.9312,76.2673
+Kerala,Kozhikode,11.2588,75.7804
+Kerala,Thrissur,10.5167,76.2167
+Kerala,Kannur,11.8745,75.3704
+Madhya Pradesh,Bhopal,23.2599,77.4126
+Madhya Pradesh,Indore,22.7196,75.8577
+Madhya Pradesh,Gwalior,26.2183,78.1828
+Madhya Pradesh,Jabalpur,23.1715,80.0482
+Madhya Pradesh,Ujjain,23.1764,75.7885
+Maharashtra,Mumbai,19.0760,72.8777
+Maharashtra,Pune,18.5204,73.8567
+Maharashtra,Nashik,19.9975,73.7898
+Maharashtra,Nagpur,21.1458,79.0882
+Maharashtra,Thane,19.2183,72.9781
+Manipur,Imphal,24.8170,93.9368
+Manipur,Churachandpur,24.3177,92.8999
+Manipur,Thoubal,24.6300,93.9300
+Manipur,Bishnupur,24.6167,94.0167
+Manipur,Senapati,25.0500,94.0300
+Meghalaya,Shillong,25.5788,91.8933
+Meghalaya,Tura,25.5120,90.2201
+Meghalaya,Jowai,25.5670,92.7130
+Meghalaya,Nongstoin,25.5120,91.2700
+Meghalaya,Baghmara,25.5120,90.6500
+Mizoram,Aizawl,23.7271,92.7176
+Mizoram,Lunglei,22.5333,92.9000
+Mizoram,Champhai,23.4667,93.3333
+Mizoram,Serchhip,23.3000,92.8333
+Mizoram,Kolasib,24.3667,92.6667
+Nagaland,Kohima,25.6751,94.1086
+Nagaland,Dimapur,26.1700,93.7325
+Nagaland,Mokokchung,26.3047,94.5325
+Nagaland,Mon,26.6833,95.0167
+Nagaland,Wokha,26.4833,94.2667
+Odisha,Bhubaneswar,20.2961,85.8245
+Odisha,Cuttack,20.4625,85.8830
+Odisha,Rourkela,22.2479,84.8355
+Odisha,Berhampur,19.3026,84.7920
+Odisha,Sambalpur,21.4814,83.9785
+Punjab,Chandigarh,30.7333,76.7794
+Punjab,Ludhiana,30.9010,75.8573
+Punjab,Amritsar,31.6340,74.8723
+Punjab,Jalandhar,31.3260,75.5762
+Punjab,Patiala,30.3398,76.3869
+Rajasthan,Jaipur,26.9124,75.7873
+Rajasthan,Udaipur,24.5854,73.6823
+Rajasthan,Jodhpur,26.2389,73.0243
+Rajasthan,Ajmer,26.4499,74.6399
+Rajasthan,Bikaner,27.9884,73.3408
+Sikkim,Gangtok,27.3389,88.6065
+Sikkim,Namchi,27.2480,88.3732
+Sikkim,Pelling,27.3330,88.2240
+Sikkim,Ravangla,27.2750,88.4000
+Sikkim,Gyalshing,27.2990,88.2500
+Tamil Nadu,Chennai,13.0827,80.2707
+Tamil Nadu,Coimbatore,11.0168,76.9558
+Tamil Nadu,Madurai,9.9252,78.1198
+Tamil Nadu,Tiruchirappalli,10.8050,78.6569
+Tamil Nadu,Salem,11.6643,78.1460
+Telangana,Hyderabad,17.3850,78.4867
+Telangana,Warangal,18.0124,79.5871
+Telangana,Nizamabad,18.6745,78.9485
+Telangana,Khammam,17.2480,80.1462
+Telangana,Karimnagar,18.4333,79.1333
+Tripura,Agartala,23.8315,91.2868
+Tripura,Udaipur,23.5333,92.0000
+Tripura,Dharmanagar,24.4167,92.5000
+Tripura,Kailashahar,24.3167,92.3000
+Tripura,Ambassa,23.3667,92.2167
+Uttar Pradesh,Lucknow,26.8467,80.9462
+Uttar Pradesh,Kanpur,26.4499,80.3319
+Uttar Pradesh,Varanasi,25.3176,82.9739
+Uttar Pradesh,Agra,27.1767,78.0081
+Uttar Pradesh,Meerut,28.9845,77.7064
+Uttarakhand,Dehradun,30.3165,78.0322
+Uttarakhand,Haridwar,29.9457,78.1642
+Uttarakhand,Nainital,29.3805,79.4647
+Uttarakhand,Rishikesh,30.0869,78.2676
+Uttarakhand,Haldwani,29.2176,79.5252
+West Bengal,Kolkata,22.5726,88.3639
+West Bengal,Darjeeling,27.0410,88.2662
+West Bengal,Siliguri,26.7271,88.3952
+West Bengal,Howrah,22.5958,88.2636
+West Bengal,Durgapur,23.5204,87.3119
