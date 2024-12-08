@@ -29,7 +29,7 @@ API Integration: OpenWeatherMap API
 
 Data Sources: CSV files containing climate, population, and healthcare statistics.
 
-## Installation and Setup
+## Installation and Setup.
 ### Clone the repository:
 
  
